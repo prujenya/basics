@@ -1,45 +1,99 @@
 package com.company.firstlevel; //package name: provides the unique namespace for the application
 
+
+import java.util.Scanner;
+import static java.lang.System.out;
+import java.io.*;
+
+
 public class Main {
     /*any Java program/code
     is a class*/
 
-    public static void main(String[] args) { // each Java program contains main method
+    public static void main(String[] args) throws NumberFormatException { // each Java program contains main method
 	// write your code here
-        System.out.println("Welcome to Armenian - Indian training center!");// method "System.out.println": doing something
+        out.println("Welcome to Armenian - Indian training center!");// method "System.out.println": doing something
 
-        MountainBike mb = new MountainBike();
-        mb.printStates();
+        //Scanner in = new Scanner(System.in);
 
-        /*MountainBike mb = new MountainBike(2,2,2,2);
-        mb.printStates();*/
+        //int number0 = in.nextInt();
+        //long number = in.nextLong();
 
-        // Create two different
-        // Bicycle objects
+        int i;
+        FileInputStream fis = null;
+        FileOutputStream fos = null;
+        FileOutputStream fos1 = null;
 
-        /*Bicycle mybike = new Bicycle(3,20,5);
-        mybike.speedUp(35);
-        mybike.printStates();*/
+        String filename = "C:\\Users\\prujenya\\IdeaProjects\\basics\\src\\com\\company\\firstlevel\\myfile1.txt";
+        String myfilename = "C:\\Users\\prujenya\\IdeaProjects\\basics\\src\\com\\company\\firstlevel\\myfile2.txt";
+        String myfilename1 = "C:\\Users\\prujenya\\IdeaProjects\\basics\\src\\com\\company\\firstlevel\\myfile3.txt";
 
 
-        Bicycle bike1 = new Bicycle();
-        Bicycle bike2 = new Bicycle();
+        String str = "ZZZZZZZZZsdlskdlskdjlksdjlkfsjldkfXXXXXXXXXXXXXXXXXXXXXX";
 
-        // Invoke methods on
-        // those objects
-        bike1.changeCadence(50);
-        bike1.speedUp(10);
-        bike1.changeGear(2);
-        bike1.printStates();
+        byte[] bstr = str.getBytes();
 
-        bike2.changeCadence(50);
-        bike2.speedUp(10);
-        bike2.changeGear(2);
-        bike2.changeCadence(40);
-        bike2.speedDown(5);
-        bike2.changeGear(3);
-        bike2.printStates();
+
+
+            try {
+
+                fis = new FileInputStream(filename);
+                fos = new FileOutputStream(myfilename);
+                fos1 = new FileOutputStream(myfilename1,true);
+
+                fos1.write(bstr);
+
+                do {
+                    i = fis.read();
+                    if (i != -1) {
+                        System.out.print((char) i);
+                        fos.write(i);
+                    }
+
+
+                } while (i != -1);
+
+
+            } catch (FileNotFoundException ex) {
+
+                System.out.println("file is not found");
+            } catch (IOException ex1) {
+
+                System.out.println("i/o error");
+            } catch (NullPointerException ex2) {
+                System.out.println(ex2.toString());
+
+            } finally {
+
+                try {
+
+                    if (fis != null)
+                        fis.close();
+
+                } catch (IOException e) {
+
+                    System.out.println("file closing error");
+                }
+
+                try {
+
+                    if (fos != null)
+                        fos.close();
+
+                } catch (IOException e) {
+
+                    System.out.println("file closing error");
+                }
+            }
+
+
+
+
 
 
     }
-}
+
+
+
+    }
+

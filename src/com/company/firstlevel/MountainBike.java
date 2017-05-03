@@ -7,9 +7,9 @@ package com.company.firstlevel;
 class MountainBike extends Bicycle {
 
     //some code ...
-    int seatHeight = 0;
+    //int seatHeight;
 
-    /*public int seatHeight;
+    private int seatHeight;
 
     public MountainBike(int startHeight,
                         int startCadence,
@@ -19,7 +19,7 @@ class MountainBike extends Bicycle {
         super(startCadence, startSpeed, startGear);
         seatHeight = startHeight;
 
-    }*/
+    }
 
     // the MountainBike subclass adds one method
     public void setHeight(int newValue) {

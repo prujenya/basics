@@ -5,21 +5,24 @@ package com.company.firstlevel;
  */
 public class Bicycle {
 
-    int cadence = 0;
-    int speed = 0;
-    int gear = 1;
 
-    /*public int cadence;
+
+    public int cadence;
     public int gear;
     public int speed;
 
+//Bicycle class constructor
+    public Bicycle(){
+
+
+    }
 
     public Bicycle(int startCadence, int startSpeed, int startGear) {
 
         gear = startGear;
         cadence = startCadence;
         speed = startSpeed;
-    }*/
+    }
 
 
 
