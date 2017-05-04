@@ -24,9 +24,9 @@ public class Main {
         FileOutputStream fos = null;
         FileOutputStream fos1 = null;
 
-        String filename = "C:\\Users\\prujenya\\IdeaProjects\\basics\\src\\com\\company\\firstlevel\\myfile1.txt";
-        String myfilename = "C:\\Users\\prujenya\\IdeaProjects\\basics\\src\\com\\company\\firstlevel\\myfile4.txt";
-        String myfilename1 = "C:\\Users\\prujenya\\IdeaProjects\\basics\\src\\com\\company\\firstlevel\\myfile3.txt";
+        String filename = "C:\\Users\\Studenta.AITC\\IdeaProjects\\mybasics\\src\\com\\company\\firstlevel\\myfile1.txt";
+        String myfilename = "C:\\Users\\Studenta.AITC\\IdeaProjects\\mybasics\\src\\com\\company\\firstlevel\\myfile4.txt";
+        String myfilename1 = "C:\\Users\\Studenta.AITC\\IdeaProjects\\mybasics\\src\\com\\company\\firstlevel\\myfile3.txt";
 
 
         String str;
@@ -60,10 +60,13 @@ public class Main {
             } catch (FileNotFoundException ex) {
 
                 System.out.println("file is not found");
+
             } catch (IOException ex1) {
 
                 System.out.println("i/o error");
+
             } catch (NullPointerException ex2) {
+
                 System.out.println(ex2.toString());
 
             } finally {
