@@ -25,11 +25,12 @@ public class Main {
         FileOutputStream fos1 = null;
 
         String filename = "C:\\Users\\prujenya\\IdeaProjects\\basics\\src\\com\\company\\firstlevel\\myfile1.txt";
-        String myfilename = "C:\\Users\\prujenya\\IdeaProjects\\basics\\src\\com\\company\\firstlevel\\myfile2.txt";
+        String myfilename = "C:\\Users\\prujenya\\IdeaProjects\\basics\\src\\com\\company\\firstlevel\\myfile4.txt";
         String myfilename1 = "C:\\Users\\prujenya\\IdeaProjects\\basics\\src\\com\\company\\firstlevel\\myfile3.txt";
 
 
-        String str = "ZZZZZZZZZsdlskdlskdjlksdjlkfsjldkfXXXXXXXXXXXXXXXXXXXXXX";
+        String str;
+        str = "ZZZZZZZZZsdlskdlskdjlksdjlkfsjldkfXXXXXXXXXXXXXXXXXXXXXX\n";
 
         byte[] bstr = str.getBytes();
 
@@ -46,7 +47,9 @@ public class Main {
                 do {
                     i = fis.read();
                     if (i != -1) {
-                        System.out.print((char) i);
+
+                        System.out.print("." + (char) i + ".");
+                        System.out.print("." + i + ".");
                         fos.write(i);
                     }
 
