@@ -159,4 +159,70 @@ public class MyAddressBook {
 
 
     }
+
+    public String getStringFromFile(String filename){
+
+        FileInputStream fis = null;
+        int i;
+        String result = "";
+
+        try {
+
+            fis = new FileInputStream(filename);
+
+
+            do {
+                i = fis.read();
+
+                if (i != -1) {
+
+                    //System.out.print("." + (char) i + ".");
+                    result += (char) i;
+
+                }
+
+
+            } while (i != -1);
+
+
+        } catch (FileNotFoundException ex) {
+
+            System.out.println("file is not found");
+
+        } catch (IOException ex1) {
+
+            System.out.println("i/o error");
+
+        } catch (NullPointerException ex2) {
+
+            System.out.println(ex2.toString());
+
+        } finally {
+
+            try {
+
+                if (fis != null)
+                    fis.close();
+
+            } catch (IOException e) {
+
+                System.out.println("file closing error");
+            }
+
+
+        }
+
+        return result;
+    }
+
+    public int findRecord(String str, String str1){
+
+        boolean bl = str1.contains(str);
+        if(bl)
+            return 1;
+        else
+            return 0;
+
+    }
+
 }
