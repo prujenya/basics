@@ -42,71 +42,27 @@ public class MyAddressBook {
         return mrc;
     }
 
-    public String[] getLinesFromFile(String filename){ // private ??
+    public String getLinesFromFile(String filename){ // private ??
 
-        String[] str = null;
-        ////////////////////////////
-
-
-        ////////////////////////////
-        return str;
-    }
-
-
-
-    public MyRecord[] getRecords() {
-        return records;
-    }
-
-    public void setRecordsnumber(int recordsnumber) {
-        this.recordsnumber = recordsnumber;
-    }
-
-    public int getRecordsnumber() {
-        return recordsnumber;
-    }
-
-    public void addRecord(MyRecord myrecord, String filestorage){
-
-        FileOutputStream fos1 = null;
-        String str = "*" + myrecord.getName() + "*";
-
-        this.records = new MyRecord[1];
-        this.records[0] = myrecord;
-
-        /*
-        int i;
         FileInputStream fis = null;
-        FileOutputStream fos = null;
-        FileOutputStream fos1 = null;
+        int i;
+        ////////////////////////////
 
-        String filename = "C:\\Users\\Studenta.AITC\\IdeaProjects\\mybasics\\src\\com\\company\\firstlevel\\myfile1.txt";
-        String myfilename = "C:\\Users\\Studenta.AITC\\IdeaProjects\\mybasics\\src\\com\\company\\firstlevel\\myfile4.txt";
-        String myfilename1 = "C:\\Users\\Studenta.AITC\\IdeaProjects\\mybasics\\src\\com\\company\\firstlevel\\myfile3.txt";
-
-
-        String str;
-        str = "ZZZZZZZZZsdlskdlskdjlksdjlkfsjldkfXXXXXXXXXXXXXXXXXXXXXX\n";
-
-        byte[] bstr = str.getBytes();
+        String result = "";
 
 
 
             try {
 
                 fis = new FileInputStream(filename);
-                fos = new FileOutputStream(myfilename);
-                fos1 = new FileOutputStream(myfilename1,true);
-
-                fos1.write(bstr);
 
                 do {
                     i = fis.read();
                     if (i != -1) {
 
-                        System.out.print("." + (char) i + ".");
-                        System.out.print("." + i + ".");
-                        fos.write(i);
+                        result += (char) i;
+
+
                     }
 
 
@@ -137,21 +93,85 @@ public class MyAddressBook {
                     System.out.println("file closing error");
                 }
 
-                try {
 
-                    if (fos != null)
-                        fos.close();
-
-                } catch (IOException e) {
-
-                    System.out.println("file closing error");
-                }
             }
 
 
 
 
-*/
+
+        ////////////////////////////
+        return result;
+    }
+
+
+
+    public MyRecord[] getRecords() {
+        return records;
+    }
+
+    public void setRecordsnumber(int recordsnumber) {
+        this.recordsnumber = recordsnumber;
+    }
+
+    public int getRecordsnumber() {
+        return recordsnumber;
+    }
+
+    public void addRecord(MyRecord[] myrecord, String filestorage){
+
+
+        int i;
+        //FileOutputStream fos1 = null;
+        //FileInputStream fis = null;
+        FileOutputStream fos = null;
+        String str = "";
+        byte[] bstr = null;
+
+        for(int k = 0; k < myrecord.length; k++){
+
+            str += "*" + myrecord[k].getName() + "*" + myrecord[k].getSurname() + "*" + myrecord[k].getPhone()  + "*" +
+                    myrecord[k].getPostaladdress()  + "*" +
+                    myrecord[k].getEmail()  + "*" +  myrecord[k].getWebsite() + "\n";
+
+        }
+
+        bstr = str.getBytes();
+
+        try {
+
+            fos = new FileOutputStream(filestorage, true);
+            fos.write(bstr);
+
+
+        } catch (FileNotFoundException ex) {
+
+            System.out.println("file is not found");
+
+        } catch (IOException ex1) {
+
+            System.out.println("i/o error");
+
+        } catch (NullPointerException ex2) {
+
+            System.out.println(ex2.toString());
+
+        } finally {
+
+
+
+            try {
+
+                if (fos != null)
+                    fos.close();
+
+            } catch (IOException e) {
+
+                System.out.println("file closing error");
+            }
+        }
+
+
 
     }
 

@@ -21,63 +21,38 @@ public class Main {
         MyRecord[] mrcarray = {rc1, rc2};
         System.out.println("test: " + mrcarray[1].getPhone());
 
-        MyAddressBook mab = new MyAddressBook(mrcarray);
+        //MyAddressBook mab = new MyAddressBook(mrcarray);
         //System.out.println("test: " + mab.getRecords()[0].getEmail());
 
-        String myfilename1 = "C:\\Users\\Studenta.AITC\\IdeaProjects\\mybasics\\src\\com\\company\\firstlevel\\myfile2.txt";
+        String myfilename1 = "C:\\Users\\prujenya\\IdeaProjects\\basics\\src\\com\\company\\firstlevel\\myfile3.txt";
 
         MyAddressBook mab1 = new MyAddressBook();
-        mab1.findRecord("Grigoryan", "sjlksjerlkwelkxz,xm,zm34,m5,");
-        System.out.println(mab1.getStringFromFile(myfilename1));
+        mab1.addRecord(mrcarray, myfilename1);
+        System.out.println("file contains: " + mab1.getLinesFromFile(myfilename1));
 
-        String[] s = {"C:","Users","Studenta.AITC","IdeaProjects","mybasics","src","com","company","firstlevel","myfile2.txt"};
-        String[] s1 = new String [5];
-        String str1 = "";
+        //mab1.getRecords()[0].getName();
+        //System.out.println("test: " + mab1.getRecords()[0].getEmail());
 
-        byte[][] M = new byte[3][5];
-        M[0][0] = 1;
-        M[0][1] = 3;
-        M[2][4] = 2;
-
-        for(int i = 0; i<3; i++)
-            for(int j = 0; j<5; j++)
-                System.out.println("M" + "[" + i + "]" + "[" + j + "]=" + M[i][j]);
-
-
-
-
-/*
-        int j = 0;
-
-        for(int i=0; i<s.length; i++){
-
-            if(i%2 != 0){
-                s1[j] = s[i];
-                System.out.println("s1 = " + s1[j]);
-                str1 += s1[j];
-                j++;
-            }
-
-            System.out.println(str1);
-
-        }*/
-
-
-
-
-        /*
-        mab1.addRecord(rc1, myfilename1);
-        mab1.getRecords()[0].getName();
-        System.out.println("test: " + mab1.getRecords()[0].getEmail());
-        */
-
-        /*
         ArrayList<String> al;
         al = new ArrayList<String>(5);
         al.add("wejkhkwjehk");
         al.add("wexx485798479e8798ehk");
-        System.out.println("size: " + al.size());*/
+        System.out.println("size: " + al.size());
 
+        String[] ssss = {"abc", "jhkdjhf", "e9fsidksdfk", "dkfsx,mcnx,mn"};
+
+        for(int i=0; i<ssss.length; i++){
+
+            if(i%2 == 0)
+                System.out.println(ssss[i]);
+
+
+
+        }
+
+        String[][] a = new String[2][2];
+        a[0][0] = "kdjlk";
+        System.out.println("A" + a[0][0]);
 
 
 
@@ -91,6 +66,85 @@ public class Main {
 
 
     }
+
+
+      /*
+
+
+        String filename = "C:\\Users\\Studenta.AITC\\IdeaProjects\\mybasics\\src\\com\\company\\firstlevel\\myfile1.txt";
+        String myfilename = "C:\\Users\\Studenta.AITC\\IdeaProjects\\mybasics\\src\\com\\company\\firstlevel\\myfile4.txt";
+        String myfilename1 = "C:\\Users\\Studenta.AITC\\IdeaProjects\\mybasics\\src\\com\\company\\firstlevel\\myfile3.txt";
+
+
+        //String str;
+        str = "ZZZZZZZZZsdlskdlskdjlksdjlkfsjldkfXXXXXXXXXXXXXXXXXXXXXX\n";
+
+        byte[] bstr = str.getBytes();
+
+        String result = "";
+
+
+
+            try {
+
+                fis = new FileInputStream(filename);
+                fos = new FileOutputStream(myfilename);
+                fos1 = new FileOutputStream(myfilename1,true);
+
+                fos1.write(bstr);
+
+                do {
+                    i = fis.read();
+                    if (i != -1) {
+
+                        System.out.print("." + (char) i + ".");
+                        result += (char) i;
+
+                        System.out.print("." + i + ".");
+                        fos.write(i);
+                    }
+
+
+                } while (i != -1);
+
+
+            } catch (FileNotFoundException ex) {
+
+                System.out.println("file is not found");
+
+            } catch (IOException ex1) {
+
+                System.out.println("i/o error");
+
+            } catch (NullPointerException ex2) {
+
+                System.out.println(ex2.toString());
+
+            } finally {
+
+                try {
+
+                    if (fis != null)
+                        fis.close();
+
+                } catch (IOException e) {
+
+                    System.out.println("file closing error");
+                }
+
+                try {
+
+                    if (fos != null)
+                        fos.close();
+
+                } catch (IOException e) {
+
+                    System.out.println("file closing error");
+                }
+            }
+
+
+*/
 
 
     }
