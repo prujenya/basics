@@ -42,7 +42,7 @@ public class MyAddressBook {
         return mrc;
     }
 
-    public String getLinesFromFile(String filename){ // private ??
+    public String getLineFromFile(String filename){ // private ??
 
         FileInputStream fis = null;
         int i;
@@ -104,6 +104,80 @@ public class MyAddressBook {
         return result;
     }
 
+    public String[] getLinesFromFile(String filename){
+
+        String[] lines = new String[10];
+        ///////////////////////////////////////
+        FileInputStream fis = null;
+        int i;
+        ////////////////////////////
+
+        String result = "";
+        int counter = 0;
+
+
+
+        try {
+
+            fis = new FileInputStream(filename);
+
+            do{
+
+                lines[counter] = "";
+
+                do{
+                    i = fis.read();
+
+                    if ((char)i !='\n') {
+
+                        lines[counter] += (char) i;
+
+                    }
+
+                }while((char)i !='\n');
+
+                counter ++;
+
+
+
+            }while (i != -1);
+
+
+        } catch (FileNotFoundException ex) {
+
+            System.out.println("file is not found");
+
+        } catch (IOException ex1) {
+
+            System.out.println("i/o error");
+
+        } catch (NullPointerException ex2) {
+
+            System.out.println(ex2.toString());
+
+        } finally {
+
+            try {
+
+                if (fis != null)
+                    fis.close();
+
+            } catch (IOException e) {
+
+                System.out.println("file closing error");
+            }
+
+
+        }
+
+        ////////////////////////////
+
+
+        ///////////////////////////////////////
+
+        return lines;
+    }
+
 
 
     public MyRecord[] getRecords() {
@@ -122,8 +196,6 @@ public class MyAddressBook {
 
 
         int i;
-        //FileOutputStream fos1 = null;
-        //FileInputStream fis = null;
         FileOutputStream fos = null;
         String str = "";
         byte[] bstr = null;

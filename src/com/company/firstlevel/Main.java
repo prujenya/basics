@@ -24,11 +24,15 @@ public class Main {
         //MyAddressBook mab = new MyAddressBook(mrcarray);
         //System.out.println("test: " + mab.getRecords()[0].getEmail());
 
-        String myfilename1 = "C:\\Users\\prujenya\\IdeaProjects\\basics\\src\\com\\company\\firstlevel\\myfile3.txt";
+        String myfilename1 = "C:\\Users\\Studenta.AITC\\IdeaProjects\\mybasics\\src\\com\\company\\firstlevel\\myfile3.txt";
 
         MyAddressBook mab1 = new MyAddressBook();
         mab1.addRecord(mrcarray, myfilename1);
-        System.out.println("file contains: " + mab1.getLinesFromFile(myfilename1));
+        //System.out.println("file contains: " + mab1.getLineFromFile(myfilename1));
+        String str1 = mab1.getLineFromFile(myfilename1);
+        //System.out.println("find " + mab1.findRecord("hov",str1));
+        System.out.println("getLinesFromFile " + mab1.getLinesFromFile(myfilename1)[1]);
+
 
         //mab1.getRecords()[0].getName();
         //System.out.println("test: " + mab1.getRecords()[0].getEmail());
