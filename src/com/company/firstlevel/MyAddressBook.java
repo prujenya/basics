@@ -128,13 +128,13 @@ public class MyAddressBook {
                 do{
                     i = fis.read();
 
-                    if ((char)i !='\n') {
+                    if ((char)i !='\n' && i != -1) {
 
                         lines[counter] += (char) i;
 
                     }
 
-                }while((char)i !='\n');
+                }while((char)i !='\n' && i != -1);
 
                 counter ++;
 
