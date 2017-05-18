@@ -24,14 +24,34 @@ public class Main {
         //MyAddressBook mab = new MyAddressBook(mrcarray);
         //System.out.println("test: " + mab.getRecords()[0].getEmail());
 
-        String myfilename1 = "C:\\Users\\prujenya\\IdeaProjects\\basics\\src\\com\\company\\firstlevel\\myfile3.txt";
+        String myfilename1 = "C:\\Users\\Studenta.AITC\\IdeaProjects\\mybasics\\src\\com\\company\\firstlevel\\myfile3.txt";
 
         MyAddressBook mab1 = new MyAddressBook();
         mab1.addRecord(mrcarray, myfilename1);
         //System.out.println("file contains: " + mab1.getLineFromFile(myfilename1));
         String str1 = mab1.getLineFromFile(myfilename1);
         //System.out.println("find " + mab1.findRecord("hov",str1));
-        System.out.println("getLinesFromFile " + mab1.getLinesFromFile(myfilename1)[4]);
+
+        String[] contacts = mab1.getLinesFromFile(myfilename1);
+        //System.out.println("getLinesFromFile " + mab1.getLinesFromFile(myfilename1)[4]);
+        for(int i=0; i<contacts.length; i++){
+
+            if(contacts[i] != "" && contacts[i] != null)
+                System.out.println("contact data [" + i + "]" + contacts[i]);
+
+        }
+
+        int[] ids = mab1.findRecords("5Ashot",contacts);
+
+        for(int i=0; i<ids.length; i++){
+
+            if(ids[i] != -1)
+                System.out.println("ids = " + ids[i]);
+
+        }
+
+
+
 
 
         //mab1.getRecords()[0].getName();
@@ -42,6 +62,7 @@ public class Main {
         al.add("wejkhkwjehk");
         al.add("wexx485798479e8798ehk");
         System.out.println("size: " + al.size());
+
 
         String[] ssss = {"abc", "jhkdjhf", "e9fsidksdfk", "dkfsx,mcnx,mn"};
 

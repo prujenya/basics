@@ -106,7 +106,7 @@ public class MyAddressBook {
 
     public String[] getLinesFromFile(String filename){
 
-        String[] lines = new String[10];
+        String[] lines = new String[100];
         ///////////////////////////////////////
         FileInputStream fis = null;
         int i;
@@ -307,13 +307,55 @@ public class MyAddressBook {
         return result;
     }
 
-    public int findRecord(String str, String str1){
+    public int findRecord(String str, String[] str1){
 
-        boolean bl = str1.contains(str);
-        if(bl)
-            return 1;
-        else
-            return 0;
+        for(int i=0; i < str1.length; i++){
+
+            try{
+                if(str1[i] != "" && str1[i] != null && str1[i].contains(str)){
+                    return i;
+                }
+
+            }catch(NullPointerException ex){
+
+                System.out.println(ex.toString());
+            }
+
+
+        }
+
+        return -1;
+
+    }
+
+    public int[] findRecords(String str, String[] str1){
+
+        int[] number = new int[str1.length];
+        int count = 0;
+
+        for(int i=0; i < str1.length; i++){
+
+            try{
+                if(str1[i] != "" && str1[i] != null && str1[i].contains(str)){
+                    number[count] = i;
+
+                }
+                else{
+                    number[count] = -1;
+
+                }
+
+                count ++;
+
+            }catch(NullPointerException ex){
+
+                System.out.println(ex.toString());
+            }
+
+
+        }
+
+        return number;
 
     }
 
