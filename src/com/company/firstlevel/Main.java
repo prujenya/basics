@@ -2,6 +2,7 @@ package com.company.firstlevel; //package name: provides the unique namespace fo
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 import static java.lang.System.out;
 import java.io.*;
@@ -34,6 +35,7 @@ public class Main {
 
         String[] contacts = mab1.getLinesFromFile(myfilename1);
         //System.out.println("getLinesFromFile " + mab1.getLinesFromFile(myfilename1)[4]);
+/*
         for(int i=0; i<contacts.length; i++){
 
             if(contacts[i] != "" && contacts[i] != null)
@@ -50,34 +52,34 @@ public class Main {
 
         }
 
-
+*/
 
 
 
         //mab1.getRecords()[0].getName();
         //System.out.println("test: " + mab1.getRecords()[0].getEmail());
 
-        ArrayList<String> al;
-        al = new ArrayList<String>(5);
-        al.add("wejkhkwjehk");
-        al.add("wexx485798479e8798ehk");
-        System.out.println("size: " + al.size());
+        ArrayList<String> al = mab1.getLinesListFromFile(myfilename1);
+        al.remove(0);
+
+        Iterator<String> iter = al.iterator();
 
 
-        String[] ssss = {"abc", "jhkdjhf", "e9fsidksdfk", "dkfsx,mcnx,mn"};
+        int cc = 0;
 
-        for(int i=0; i<ssss.length; i++){
-
-            if(i%2 == 0)
-                System.out.println(ssss[i]);
-
-
+        while(iter.hasNext()){
+            cc ++;
+            System.out.println(cc + " " + iter.next());
 
         }
 
-        String[][] a = new String[2][2];
-        a[0][0] = "kdjlk";
-        System.out.println("A" + a[0][0]);
+        System.out.println("array list size: " + al.size());
+
+        mab1.handleRecordsFile(myfilename1, myfilename1,2);
+
+
+
+
 
 
 
