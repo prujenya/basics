@@ -171,6 +171,7 @@ public class MyAddressBook {
         }
 
         ////////////////////////////
+        alines.remove(alines.size()-1);
         return alines;
 
     }
@@ -311,6 +312,70 @@ public class MyAddressBook {
 
     }
 
+    public void handleRecordsFile(String fileout, String filein, int[] idx){
+        ArrayList<String> myArrayList;
+        Iterator<String> itr;
+        myArrayList = getLinesListFromFile(fileout);
+
+        for(int cc=idx.length-1; cc >= 0; --cc){
+
+            myArrayList.remove(idx[cc]);
+
+        }
+
+
+
+        itr = myArrayList.iterator();
+
+        FileOutputStream fos = null;
+        byte[] bstr;
+        String str = "";
+        ///////////////////////////////////////////////////////
+        while(itr.hasNext()){
+
+            str += itr.next() + "\n";
+
+        }
+
+        bstr = str.getBytes();
+
+        try {
+
+            fos = new FileOutputStream(filein);
+            fos.write(bstr);
+
+
+        } catch (FileNotFoundException ex) {
+
+            System.out.println("file is not found");
+
+        } catch (IOException ex1) {
+
+            System.out.println("i/o error");
+
+        } catch (NullPointerException ex2) {
+
+            System.out.println(ex2.toString());
+
+        } finally {
+
+
+
+            try {
+
+                if (fos != null)
+                    fos.close();
+
+            } catch (IOException e) {
+
+                System.out.println("file closing error");
+            }
+        }
+
+        ////////////////////////////////////////////////////////
+
+    }
+
     public void setRecordsnumber(int recordsnumber) {
         this.recordsnumber = recordsnumber;
     }
@@ -321,6 +386,9 @@ public class MyAddressBook {
 
     public void addRecord(MyRecord[] myrecord, String filestorage){
 
+        ArrayList<String> al = getLinesListFromFile(filestorage);
+        int oldLength = al.size();
+
 
         int i;
         FileOutputStream fos = null;
@@ -329,9 +397,50 @@ public class MyAddressBook {
 
         for(int k = 0; k < myrecord.length; k++){
 
-            str += "*" + myrecord[k].getName() + "*" + myrecord[k].getSurname() + "*" + myrecord[k].getPhone()  + "*" +
+            switch ((oldLength + k + 1)%2){
+
+                case 0:
+                    switch (myrecord[k].getName()){
+                        case "Ashot":
+                            str += (oldLength + k + 1) + "*absent*" + myrecord[k].getName() + "*" + myrecord[k].getSurname() + "*" + myrecord[k].getPhone()  + "*" +
+                                    myrecord[k].getPostaladdress()  + "*" +
+                                    myrecord[k].getEmail()  + "*" +  myrecord[k].getWebsite() + "\n";
+                            break;
+                        case "Hovhannes":
+                            str += (oldLength + k + 1) + "*leaved*" + myrecord[k].getName() + "*" + myrecord[k].getSurname() + "*" + myrecord[k].getPhone()  + "*" +
+                                    myrecord[k].getPostaladdress()  + "*" +
+                                    myrecord[k].getEmail()  + "*" +  myrecord[k].getWebsite() + "\n";
+                            break;
+                        case "Vazgen":
+                            str += (oldLength + k + 1) + "*doesn't exist*" + myrecord[k].getName() + "*" + myrecord[k].getSurname() + "*" + myrecord[k].getPhone()  + "*" +
+                                    myrecord[k].getPostaladdress()  + "*" +
+                                    myrecord[k].getEmail()  + "*" +  myrecord[k].getWebsite() + "\n";
+                            break;
+                        case "Vardkez":
+                            str += (oldLength + k + 1) + "*doesn't exist*" + myrecord[k].getName() + "*" + myrecord[k].getSurname() + "*" + myrecord[k].getPhone()  + "*" +
+                                    myrecord[k].getPostaladdress()  + "*" +
+                                    myrecord[k].getEmail()  + "*" +  myrecord[k].getWebsite() + "\n";
+                            break;
+                        default:
+                            str += (oldLength + k + 1) + "**" + myrecord[k].getName() + "*" + myrecord[k].getSurname() + "*" + myrecord[k].getPhone()  + "*" +
+                                    myrecord[k].getPostaladdress()  + "*" +
+                                    myrecord[k].getEmail()  + "*" +  myrecord[k].getWebsite() + "\n";
+                            break;
+
+                    }
+
+                    break;
+                default:
+                    str += (oldLength + k + 1) + "*" + myrecord[k].getName() + "*" + myrecord[k].getSurname() + "*" + myrecord[k].getPhone()  + "*" +
+                            myrecord[k].getPostaladdress()  + "*" +
+                            myrecord[k].getEmail()  + "*" +  myrecord[k].getWebsite() + "\n";
+                    break;
+
+            }
+/*
+            str += (oldLength + k + 1) + "*" + myrecord[k].getName() + "*" + myrecord[k].getSurname() + "*" + myrecord[k].getPhone()  + "*" +
                     myrecord[k].getPostaladdress()  + "*" +
-                    myrecord[k].getEmail()  + "*" +  myrecord[k].getWebsite() + "\n";
+                    myrecord[k].getEmail()  + "*" +  myrecord[k].getWebsite() + "\n";*/
 
         }
 

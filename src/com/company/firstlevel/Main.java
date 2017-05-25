@@ -18,8 +18,10 @@ public class Main {
 
         MyRecord rc1 = new MyRecord("Ashot", "Grigoryan", "094222211", "1 Mannogian St., 0025 Yerevan, Armenia", "ashot@gmail.com", "www.ysu.ws");
         MyRecord rc2 = new MyRecord("Hovhannes", "Gasparyan", "093222233", "2 Mannogian St., 0025 Yerevan, Armenia", "hovog@gmail.com", "www.ysu.ws");
+        MyRecord rc3 = new MyRecord("Vazgen", "Gasparyan", "093222233", "2 Mannogian St., 0025 Yerevan, Armenia", "hovog@gmail.com", "www.ysu.ws");
+        MyRecord rc4 = new MyRecord("Vardgez", "Gasparyan", "093222233", "2 Mannogian St., 0025 Yerevan, Armenia", "hovog@gmail.com", "www.ysu.ws");
 
-        MyRecord[] mrcarray = {rc1, rc2};
+        MyRecord[] mrcarray = {rc1, rc2, rc3, rc4};
         System.out.println("test: " + mrcarray[1].getPhone());
 
         //MyAddressBook mab = new MyAddressBook(mrcarray);
@@ -30,37 +32,13 @@ public class Main {
         MyAddressBook mab1 = new MyAddressBook();
         mab1.addRecord(mrcarray, myfilename1);
         //System.out.println("file contains: " + mab1.getLineFromFile(myfilename1));
-        String str1 = mab1.getLineFromFile(myfilename1);
+        //String str1 = mab1.getLineFromFile(myfilename1);
         //System.out.println("find " + mab1.findRecord("hov",str1));
 
-        String[] contacts = mab1.getLinesFromFile(myfilename1);
-        //System.out.println("getLinesFromFile " + mab1.getLinesFromFile(myfilename1)[4]);
-/*
-        for(int i=0; i<contacts.length; i++){
-
-            if(contacts[i] != "" && contacts[i] != null)
-                System.out.println("contact data [" + i + "]" + contacts[i]);
-
-        }
-
-        int[] ids = mab1.findRecords("5Ashot",contacts);
-
-        for(int i=0; i<ids.length; i++){
-
-            if(ids[i] != -1)
-                System.out.println("ids = " + ids[i]);
-
-        }
-
-*/
-
-
-
-        //mab1.getRecords()[0].getName();
-        //System.out.println("test: " + mab1.getRecords()[0].getEmail());
+        //String[] contacts = mab1.getLinesFromFile(myfilename1);
 
         ArrayList<String> al = mab1.getLinesListFromFile(myfilename1);
-        al.remove(0);
+        //al.remove(0);
 
         Iterator<String> iter = al.iterator();
 
@@ -75,7 +53,15 @@ public class Main {
 
         System.out.println("array list size: " + al.size());
 
-        mab1.handleRecordsFile(myfilename1, myfilename1,2);
+        //mab1.handleRecordsFile(myfilename1, myfilename1,2);
+        int[] arr = {0, 3, 5, 10};
+
+        //mab1.handleRecordsFile(myfilename1, myfilename1, arr);
+
+        int A = 5;
+        int B = 3;
+        int C = A * ++B;
+        System.out.println("C = " + C);
 
 
 
